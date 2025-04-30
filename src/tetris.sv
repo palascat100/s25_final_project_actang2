@@ -20,7 +20,7 @@ module tetris(
     logic [7:0] x, y;
     spi spi_controller(.done(spi_done), .*);
     assign done = spi_done;
-    
+
     logic val, piece_active;
     logic [2:0] piece_type, save_type;
     logic [4:0] grid_row;

@@ -1,4 +1,9 @@
 `default_nettype none
+`include "spi.sv"
+`include "vga_translate.sv"
+`include "vga.sv"
+`include "grid_mem.sv"
+`include "tetris.sv"
 
 module my_chip (
     input logic [11:0] io_in, // Inputs to your chip
