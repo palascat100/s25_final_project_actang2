@@ -20,6 +20,6 @@ module my_chip (
                 .MISO(io_in[4]), .clock, .reset,
                 .R1, .R0, .G1, .G0, .B1, .B0, 
                 .VS(io_out[7]), .HS(io_out[6]),
-                .MOSI(gp16), .CS(gp17), .SCK(gp14), .play);
+                .MOSI(io_out[8]), .CS(io_out[9]), .SCK(io_out[10]), .play);
 
 endmodule
