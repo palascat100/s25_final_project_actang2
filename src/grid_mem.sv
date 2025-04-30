@@ -31,7 +31,7 @@ module grid_mem #(parameter size = 1) (
     genvar i;
     genvar j;
     generate
-      for (i = 0; i < `ROWS; i = i + 1) begin: mem_rows
+      for (i = 0; i < `ROWS; i = i + 1) begin
         
         if (i != `ROWS-1) begin
             assign clr_rows[i] = clr_rows[i+1] | &mem_matrix[i];
@@ -39,7 +39,7 @@ module grid_mem #(parameter size = 1) (
             assign clr_rows[i] = &mem_matrix[i];
         end
 
-        for (j = 0; j < `COLS; j = j + 1) begin: mem_cols
+        for (j = 0; j < `COLS; j = j + 1) begin
             if (i != 0) begin
                 always_ff @(posedge clock, posedge reset) begin
                     if (reset) begin
@@ -75,8 +75,8 @@ module decoder
 );
     genvar i;
     generate
-      for (i = 0; i < sel_lines; i = i + 1) begin: decode_unit
+      for (i = 0; i < sel_lines; i = i + 1) begin
         assign one_hot[i] = binary == i;
-      end: decode_unit
+      end
     endgenerate
 endmodule: decoder
