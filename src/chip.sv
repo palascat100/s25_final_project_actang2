@@ -7,42 +7,19 @@ module my_chip (
     input logic reset // Important: Reset is ACTIVE-HIGH
 );
     
-    // Basic counter design as an example
-    // TODO: remove the counter design and use this module to insert your own design
-    // DO NOT change the I/O header of this design
+    logic play;
 
-    wire [6:0] led_out;
-    assign io_out[6:0] = led_out;
+    assign io_out[11] = play;
+    logic R1, R0, G1, G0, B1, B0;
 
-    // external clock is 1000Hz, so need 10 bit counter
-    reg [9:0] second_counter;
-    reg [3:0] digit;
+    assign {io_out[5], io_out[4]} = {B1, B0};
+    assign {io_out[3], io_out[2]} = {G1, G0};
+    assign {io_out[1], io_out[0]} = {R1, R0};
 
-    always @(posedge clock) begin
-        // if reset, set counter to 0
-        if (reset) begin
-            second_counter <= 0;
-            digit <= 0;
-        end else begin
-            // if up to 16e6
-            if (second_counter == 1000) begin
-                // reset
-                second_counter <= 0;
-
-                // increment digit
-                digit <= digit + 1'b1;
-
-                // only count from 0 to 9
-                if (digit == 9)
-                    digit <= 0;
-
-            end else
-                // increment counter
-                second_counter <= second_counter + 1'b1;
-        end
-    end
-
-    // instantiate segment display
-    seg7 seg7(.counter(digit), .segments(led_out));
+    tetris game(.toggle_async(io_in[0]), .drop_async(io_in[1]), .save_async(io_in[2]), .rotate_async(io_in[3]), 
+                .MISO(io_in[4]), .clock, .reset,
+                .R1, .R0, .G1, .G0, .B1, .B0, 
+                .VS(io_out[7]), .HS(io_out[6]),
+                .MOSI(gp16), .CS(gp17), .SCK(gp14), .play);
 
 endmodule
