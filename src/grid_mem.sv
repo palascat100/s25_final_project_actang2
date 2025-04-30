@@ -15,7 +15,7 @@ module grid_mem #(parameter size = 1) (
     logic [$clog2(`COLS)-1:0] decoder_col;
     logic [`ROWS-1:0] row_sel;
     logic [`COLS-1:0] col_sel;
-    logic [`ROWS-1:0] mem_matrix [`COLS-1:0];
+    logic [`COLS-1:0] mem_matrix [`ROWS-1:0];
     logic [`ROWS-1:0] clr_rows;
     tri val;
 
