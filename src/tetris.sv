@@ -165,13 +165,7 @@ module tetris(
     assign type_piece = (save_read) ? save_type : piece_type;
     assign orientation_piece = (save_read) ? '0 : nxt_orientation;
     assign num_pixel = (save_read) ? save_num : pixel_num;
-    // logic [4:0] grid_row;
-    // logic [5:0] grid_col;
     assign piece_active = grid_row == pixel_row && grid_col == pixel_col && pixel_valid;
-    // WIRE LENGTH MISMATCH CAUSING ISSUES
-    // logic [1:0] pixel_num;
-    // logic [4:0] pixel_row;
-    // logic [5:0] pixel_col;
     always_comb begin 
         case (type_piece)
             3'd1: case (orientation_piece)

@@ -1,6 +1,6 @@
 `default_nettype none
-`define ROWS 19
-`define COLS 11
+`define ROWS 18
+`define COLS 10
 
 module grid_mem #(parameter size = 1) (
     input  logic [$clog2(`ROWS)-1:0] row,
