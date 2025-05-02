@@ -1,6 +1,6 @@
 `default_nettype none
-`define ROWS 20
-`define COLS 12
+`define ROWS 19
+`define COLS 11
 
 module grid_mem #(parameter size = 1) (
     input  logic [$clog2(`ROWS)-1:0] row,
@@ -19,10 +19,10 @@ module grid_mem #(parameter size = 1) (
     logic [`ROWS-1:0] clr_rows;
     tri val;
 
-    assign decoder_row = (row < 5'd20) ? row : '0;
-    assign decoder_col = (col < 4'd12) ? col : '0;
+    assign decoder_row = (row < `ROWS) ? row : '0;
+    assign decoder_col = (col < `COLS) ? col : '0;
     assign r_val = (re) ? val : '0;
-    assign valid = (row < 5'd20) & (col < 4'd12) & ~r_val;
+    assign valid = (row < `ROWS) & (col < `COLS) & ~r_val;
     assign clear = clr_rows[0];
 
     decoder #(`ROWS) row_decode(.binary(row), .one_hot(row_sel));
