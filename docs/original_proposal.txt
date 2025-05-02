@@ -1,0 +1,32 @@
+Project Title: Tetris
+A condensed version of Tetris. 
+
+Technical:
+Basically classic tetris except limited speed up and no fancy mechanics 
+(e.g. t-spin). I was thinking the grid is basically a matrix of flip-flops 
+whose input is multiplexed between the FF above it, the FF above and to the 
+right, and the FF above and to the left depending on what the player is 
+inputting. For the pieces building up at the bottom, the flip-flops are 
+disabled unless the line is completely full. If space is an issue I might
+do a smaller grid.
+
+I/Os:
+Outputs:
+- VGA: 8
+- Audio: 1
+
+Inputs: 
+- Button for dropping: 1
+- Button for storing: 1
+- Button for exiting: 1
+- Button for rotating: 1
+- SPI joystick or buttons for x,y piece movement: 4
+
+Hardware Peripherals:
+- Tiny VGA PMOD + VGA display
+- maybe Tiny Audio PMOD
+- 4 buttons for dropping, storing, rotating, and exiting functionality
+- SPI joystick or more buttons for x,y piece movement
+
+Module Header: <optional>
+<SV description of your project.  Don't just give us the Tiny Tapeout header>
