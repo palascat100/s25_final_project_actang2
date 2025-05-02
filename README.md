@@ -4,6 +4,12 @@
 A condensed version of Tetris with no speedup or fancy mechanics (e.g. t-spin). The main strategy of this design is to use the fact that the VGA cycle is really long to allow for game state to be updated over multiple clock cycles instead of one. More details can be found in the documentation folder.
 
 Some images of the working screen:
+### Starting Screen   
+![starting_screen](https://github.com/user-attachments/assets/ded99032-6d2a-4f4c-bfbf-f12adc3fe1d1)
+### Saved piece   
+![save_piece](https://github.com/user-attachments/assets/dd001aad-ca73-4098-8f93-547829236136)
+### Grid commit
+![grid_commit](https://github.com/user-attachments/assets/8c159060-6cbb-45b9-8695-4b44c0f83f5f)
 
 ## IO
 
