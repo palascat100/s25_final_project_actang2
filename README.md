@@ -34,3 +34,6 @@ Some images of the working screen:
 ## How to Test
 
 Attach a 640x480 VGA monitor to the tinyVGA Pmod which hooks up to ports io_out[7:0], 4 buttons to io_in[3:0], an SPI joystick to io_in[4] + io_out[10:8], an LED to io_out[11], and run a 25MHz clock.
+
+## Note on size
+I calculated the size of my design based on non-filler and non-tap cells to be roughly 3000. To make it smaller, the rows and cols in the grid_mem.sv file can be modified.
